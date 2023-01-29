@@ -1,0 +1,29 @@
+<div class="card">
+  <div class="card-header bg-dark text-light">
+    Sign Up
+  </div>
+  <div class="text-danger">
+    {{message}}
+   </div>
+  <div class="card-body">
+    <form class="form login-form" method="post" action="/api/users/signup">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <br/>
+        <input class="form-input" type="text" id="username" name="username"/>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <br/>
+        <input class="form-input" type="password" id="password" name="password"/>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">
+          Sign Up
+        </button>
+      </div>
+      <br />
+      <a href="/login">Login instead</a>
+    </form>
+  </div>
+</div>
