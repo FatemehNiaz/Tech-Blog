@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header bg-dark text-light">
+    Create a Post
+  </div>
+  <div class="text-danger">
+    {{message}}
+   </div>
+  <div class="card-body">
+    <form class="form login-form" method="post" action="/create_post">
+      <div class="form-group">
+        <label for="postTitle">Title</label>
+        <br/>
+        <input class="form-input w-100" type="text" id="postTitle" name="postTitle"/>
+      </div>
+      <div class="form-group">
+        <label for="postContent">Content</label>
+        <br/>
+        <textarea class="form-input w-100" id="postContent" name="postContent"></textarea>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary w-100" type="submit">
+          Create
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
