@@ -22,29 +22,27 @@
 
 <div class="card m-5">
   <div class="card-header bg-dark text-light">
-
     <div class="row">
       <div class="col-sm-12">
-        <h3>Comments</h3>
+        <h3>Comment</h3>
       </div>
+      
     </div>
 
   </div>
 
   <div class="card-body">
-   {{#each comments}}
-    <p>{{this.commentContent}}
-      <br />
-      -{{this.user.username}}, {{this.commentDate}}
-    </p>
-    <br /><br />
-   {{/each}}
-  </div>
-</div>
-<div class="row">
-  <div class="col-sm-11 text-right">
-    <a class="btn btn-primary" href="/comment/{{post.id}}">
-    Add a Comment
-    </a>
-  </div>
+
+    <div class="row">
+      <div class="form-group col-sm-12">
+        {{!-- <label for="postContent">Content</label> --}}
+        <br />
+        <form action="/comment" method="post">
+          <input type="hidden" id="postId" name="postId" value="{{post.id}}"/>
+          <textarea class="form-input w-100" id="commentContent" name="commentContent"></textarea>
+          <input type="submit" class="btn btn-primary w-100" value="Submit Comment"/>
+        </form>
+      </div>
+    </div>
+
   </div>

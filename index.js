@@ -6,7 +6,7 @@ const routes = require("./controllers");
 const sequelize = require("./config/connections");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-/*const s={
+const s={
   secret:"secret",
   cookie:{},
   resave:false,
@@ -14,13 +14,17 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
   store:new SequelizeStore({
     db:sequelize
   })
-};*/
+};
 
 const hbs = exphbs.create({});
 
 const app = express();
-const PORT = process.env.PORT || 3001;
-//app.use(session(s));
+const PORT = process.env.PORT || 3005;
+app.use(session(s));
+app.use(function(req, res, next){
+  res.locals.session=req.session;
+  next();
+});
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
@@ -32,4 +36,5 @@ app.use(routes);
 
 app.listen(PORT, () => {
   console.log("app is running on port " + PORT);
+  sequelize.sync({force:false});
 });

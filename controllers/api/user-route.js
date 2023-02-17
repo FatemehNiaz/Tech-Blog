@@ -16,7 +16,13 @@ router.post("/login", async (req, res) => {
     if (validPassword == false) {
       res.redirect("/login?message=incorrect password");
     } else {
-      res.redirect("/profile");
+      req.session.save(() => {
+        req.session.userId= userData.id;
+        req.session.username= userData.username;
+        req.session.isLoggedIn= true;
+        res.redirect("/profile");
+      });
+      
     }
   } catch (err) {
     res.status(400).json(err);
@@ -26,9 +32,13 @@ router.post("/login", async (req, res) => {
 // post route for signing up
 router.post("/signup", async (req, res) => {
   try {
+    if (req.session.isLoggedIn){
+      res.redirect("/dashboard");
+      return;
+    } 
     const userData = await User.create(req.body);
 
-    res.redirect("/profile");
+    res.redirect("/login");
   } catch (err) {
     res.status(400).json(err);
   }

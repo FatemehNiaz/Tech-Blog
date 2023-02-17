@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header bg-dark text-light">
+    Update Post
+  </div>
+  <div class="text-danger">
+    {{message}}
+   </div>
+  <div class="card-body">
+    <form class="form login-form" method="post" action="/update_post">
+      <div class="form-group">
+        <label for="postTitle">Title</label>
+        <br/>
+        <input class="form-input w-100" type="text" id="postTitle" name="postTitle" value="{{post.postTitle}}"/>
+      </div>
+      <div class="form-group">
+        <label for="postContent">Content</label>
+        <br/>
+        <textarea class="form-input w-100" id="postContent" name="postContent">{{post.postContent}}</textarea>
+      </div>
+      <div class="form-group">
+        <input type="hidden" id="id" name="id" value="{{post.id}}" />
+        <input type="submit" class="btn btn-primary w-100" value="Update" />
+        <br/>
+      </div>
+    </form>
+    <form method="post" action="/delete_post">
+      <div class="form-group">
+
+        <input type="hidden" id="id" name="id" value="{{post.id}}" />
+
+        <input type="submit" class="btn btn-danger w-100" value="Delete" />
+      </div>
+    </form>
+  </div>
+</div>
