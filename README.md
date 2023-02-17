@@ -5,132 +5,78 @@
 
 ## Your Task
 
-The task is to create a 
-Writing about tech can be just as important as making it. Developers spend plenty of time creating new applications and debugging existing codebases, but most developers also spend at least some of their time reading and writing about technical concepts, recent advancements, and new technologies. A simple Google search for any concept covered in this course returns thousands of think pieces and tutorials from developers of all skill levels!
+Web development is such a big industry and like any other field, it has its own challenges.
 
-Your task this week is to build a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers’ posts as well. You’ll build this site completely from scratch and deploy it to Heroku. Your app will follow the MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM, and the express-session npm package for authentication.
+The idea is to create a  Tech Blog site so all the developers who are daily creating Apps, deploying their projects and debugging the codes can share their experience and ideas by posting them to the this Tech Blog and other developers can share their opinions and experiences on those subject by commenting.
+
+This Tech Blog site which is built based upon CMV-style, so that developers can share their ideas, experiences about technical concepts, new technologies and recent advancements by posting their blog post and commenting on other developers' posts.
+
+This application's architectural structure should follow the MVC paradigm (Model, view & Controller) and Sequeliza as the ORM. This application also uses the express-session npm package for the authentication and for the templateing language it is using the Handlebars.js.
+
 
 ## User Story
 
 ```md
-AS A developer who writes about tech
-I WANT a CMS-style blog site
-SO THAT I can publish articles, blog posts, and my thoughts and opinions
+AS A developer who posts ideas about tech
+I WANT a blog site which follows CMS-style 
+SO THAT I can publish ideas and experiences in the form of articles, blog posts, and other developer be able to comment on these posts
 ```
 
 ## Acceptance Criteria
 
 ```md
-GIVEN a CMS-style blog site
-WHEN I visit the site for the first time
-THEN I am presented with the homepage, which includes existing blog posts if any have been posted; navigation links for the homepage and the dashboard; and the option to log in
-WHEN I click on the homepage option
-THEN I am taken to the homepage
-WHEN I click on any other links in the navigation
-THEN I am prompted to either sign up or sign in
+
+
+
+GIVEN a CMS-style Tech blog site
+WHEN for the first time I visit this site 
+THEN I am able to view the homepage, which shows blog posts if any have been posted; navigation links for the homepage,a  dashboard; also the option to be able to log in
+WHEN I click on the homepage option from the navigation section
+THEN I am taken to the homepage of the site
+WHEN I click on any other links like dashboard, etc. in the navigation section
+THEN the site present a section to either sign up or sign in
 WHEN I choose to sign up
-THEN I am prompted to create a username and password
+THEN I am taken to a part to create a username and password
 WHEN I click on the sign-up button
-THEN my user credentials are saved and I am logged into the site
-WHEN I revisit the site at a later time and choose to sign in
-THEN I am prompted to enter my username and password
-WHEN I am signed in to the site
-THEN I see navigation links for the homepage, the dashboard, and the option to log out
-WHEN I click on the homepage option in the navigation
-THEN I am taken to the homepage and presented with existing blog posts that include the post title and the date created
-WHEN I click on an existing blog post
-THEN I am presented with the post title, contents, post creator’s username, and date created for that post and have the option to leave a comment
-WHEN I enter a comment and click on the submit button while signed in
-THEN the comment is saved and the post is updated to display the comment, the comment creator’s username, and the date created
-WHEN I click on the dashboard option in the navigation
-THEN I am taken to the dashboard and presented with any blog posts I have already created and the option to add a new blog post
-WHEN I click on the button to add a new blog post
-THEN I am prompted to enter both a title and contents for my blog post
-WHEN I click on the button to create a new blog post
-THEN the title and contents of my post are saved and I am taken back to an updated dashboard with my new blog post
-WHEN I click on one of my existing posts in the dashboard
-THEN I am able to delete or update my post and taken back to an updated dashboard
-WHEN I click on the logout option in the navigation
-THEN I am signed out of the site
+THEN my user credentials are saved and I am successfully logged into the Tech blog site
+WHEN I revisit the site sometimes later and select to sign in 
+THEN I am prompted to enter my username and password to sign in to the site
+WHEN I am signed in to the site using my username and password
+THEN I seeview the navigation links for the homepage, the dashboard, also the option to log out
+WHEN I select the homepage in the navigation section
+THEN I am taken to the homepage and able to view the already existing blog posts with individual post title and the date each had been created
+WHEN I click on an existing blog post to view that individual blog post
+THEN I am presented with its post title, the contents of that post, username of the person posting that post, and the date that post was created and an option to be able to comment on that post.
+WHEN I am signed in, I type a comment and click on the submit button 
+THEN the comment is saved automatically, this updates the post to display that that was just created with the username of the comment creator, and the date it has been created
+WHEN I click on the dashboard option in the navigation section
+THEN in the dashboard section I am presented with all blog posts I have already created, also an option to be able to create or add a new blog post
+WHEN I click on the creat button, I am able to add a new blog post by adding both title and contents for the new blog post that I am creating
+WHEN I type the title and content of new blog post, I click on the button to create it
+THEN both title and contents of this new post are saved and I am taken again to an updated dashboard with my the new blog post that I just created
+WHEN I click on one of my already existing posts in the dashboard section
+THEN I am able to update or delete my post and again taken back to an updated dashboard and I am signed out of the Tech blog site
 WHEN I am idle on the site for more than a set time
-THEN I am able to view comments but I am prompted to log in again before I can add, update, or delete comments
+THEN I am able to view comments but I am not able to add, update, or delete comments unless I log in again 
 ```
 
 ## Mock-Up
 
-The following animation demonstrates the application functionality:
+To view the application functionalityplease click on the gif link below:
 
-![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/14-mvc-homework-demo-01.gif) 
+![Animation cycles through signing into the app, clicking on buttons, and updating blog posts.](./Assets/TechBlog-walkThrough.gif) 
 
-## Getting Started
+### Techniques:
 
-Your application’s folder structure must follow the Model-View-Controller paradigm. You’ll need to use the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views, use the [MySQL2](https://www.npmjs.com/package/mysql2) and [Sequelize](https://www.npmjs.com/package/sequelize) packages to connect to a MySQL database for your Models, and create an Express.js API for your Controllers.
+ * Application’s folder structure follows the MVC (Model-View-Controller) paradigm.
 
-You’ll also need the [dotenv package](https://www.npmjs.com/package/dotenv) to use environment variables, the [bcrypt package](https://www.npmjs.com/package/bcrypt) to hash passwords, and the [express-session](https://www.npmjs.com/package/express-session) and [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize) packages to add authentication.
+    * This App uses the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views.
+    
+    * Using dotenv, nmp, express-session & sequelize packages (to coonect to MySQL database)
 
-**Note**: The [express-session](https://www.npmjs.com/package/express-session) package stores the session data on the client in a cookie. When you are idle on the site for more than a set time, the cookie will expire and you will be required to log in again to start a new session. This is the default behavior and you do not have to do anything to your application other than implement the npm package.
+    * Application is deployed to Heroku.
 
-## Grading Requirements
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
 
-This Challenge is graded based on the following criteria:
-
-### Technical Acceptance Criteria: 40%
-
-* Satisfies all of the preceding acceptance criteria plus the following:
-
-    * Application’s folder structure follows the Model-View-Controller paradigm.
-
-    * Uses the [express-handlebars](https://www.npmjs.com/package/express-handlebars) package to implement Handlebars.js for your Views.
-
-    * Application must be deployed to Heroku.
-
-### Deployment: 32%
-
-* Application deployed at live URL.
-
-* Application loads with no errors.
-
-* Application GitHub URL submitted.
-
-* GitHub repository contains application code.
-
-### Application Quality: 15%
-
-* User experience is intuitive and easy to navigate.
-
-* User interface style is clean and polished.
-
-* Application resembles the mock-up functionality provided in the Challenge instructions.
-
-### Repository Quality: 13%
-
-* Repository has a unique name.
-
-* Repository follows best practices for file structure and naming conventions.
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages.
-
-* Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
-
----
-© 2022 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
+MIT License 
+Copyright (c) 2023
